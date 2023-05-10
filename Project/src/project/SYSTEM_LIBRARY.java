@@ -35,24 +35,22 @@ public class SYSTEM_LIBRARY{
          {
              int x=0;
              for(int i =0;i<=sizel;i++ ){
-             if(librarians[i].getEmail() == null ? email == null : librarians[i].getEmail().equals(email)){
-             if(librarians[i].getPassword() == null ? pass == null : librarians[i].getPassword().equals(pass))
-             {
+             if( librarians[i].getEmail().equals(email) && librarians[i].getPassword().equals(pass)){
+             
+             
                   System.out.println("Welcome "+librarians[i].getFirst_name());
                   z=1;
                   a.login1(1);
-                  break;
-             } 
-             x=1;  
-             break;     
-             } 
-             }if(x==1){
+                  
+                 break;     
+             }else{
              System.out.println("Your password you entered is wrong would you try again(y/n)");
              String try1 = scanner.next();
              if(try1.equalsIgnoreCase("y")){
              login();
              }else{
              System.out.println("Thank you for using us ");
+             }
              }
              }
              
