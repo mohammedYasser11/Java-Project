@@ -1,9 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMain.java to edit this template
- */
+package project;
 
-import java.awt.Insets;
+
+
+//import java.awt.Insets;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.geometry.Insets;
 
 /**
  *
@@ -24,13 +24,15 @@ import javafx.stage.Stage;
 public class NewFXMain extends Application {
     Stage window;
     Scene scene2;
+    private Stage currentFrame;
+    LibrarySystem Library = new LibrarySystem();
     public static void main(String[] args) {
         launch(args);
     }
     @Override
     public void start(Stage primaryStage) {
         window= primaryStage;
-        primaryStage.setTitle("Login Page");
+        primaryStage.setTitle("Main frame");
 
         // Create the username label and text field
         Label emailLabel = new Label("      email:");
@@ -59,7 +61,7 @@ public class NewFXMain extends Application {
 
         // Create a grid pane and add the components
         GridPane grid = new GridPane();
-//        grid.setPadding(new Insets(10,10,10,10));
+        grid.setPadding(new Insets(10,10,10,10));
         grid.setHgap(10);
         grid.setVgap(10);
         grid.addRow(0, emailLabel, usernameField);
@@ -77,7 +79,15 @@ public class NewFXMain extends Application {
     
 
     }
+    private void showLoginPage() {
+        currentFrame = new Login_page();
+        currentFrame.show();
+    }
 
-    
+    public void switchToFrame(Stage newFrame) {
+        currentFrame.hide();
+        currentFrame = newFrame;
+        currentFrame.show();
+    }
     
 }
